@@ -1,5 +1,5 @@
 //
-//  Stream.swift
+//  YTStream.swift
 //  YouTubeKit
 //
 //  Created by Alexander Eichhorn on 06.09.21.
@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, watchOS 6.0, tvOS 13.0, macOS 10.15, *)
-public struct Stream {
+public struct YTStream {
     
     public let url: URL
     public let itag: ITag

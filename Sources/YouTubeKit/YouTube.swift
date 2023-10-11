@@ -23,7 +23,7 @@ public class YouTube {
     private var playerConfigArgs: [String: Any]?
     private var _ageRestricted: Bool?
     
-    private var _fmtStreams: [Stream]?
+    private var _fmtStreams: [YTStream]?
     
     private var initialData: Data?
 
@@ -172,7 +172,7 @@ public class YouTube {
     /// Interface to query both adaptive (DASH) and progressive streams.
     /// Returns a list of streams if they have been initialized.
     /// If the streams have not been initialized, finds all relevant streams and initializes them.
-    public var streams: [Stream] {
+    public var streams: [YTStream] {
         get async throws {
             try await checkAvailability()
             if let cached = _fmtStreams {
@@ -192,7 +192,7 @@ public class YouTube {
                 try await Extraction.applySignature(streamManifest: &streamManifest, videoInfo: videoInfo, js: js)
             }
             
-            let result = streamManifest.compactMap { try? Stream(format: $0) }
+            let result = streamManifest.compactMap { try? YTStream(format: $0) }
 
             _fmtStreams = result
             return result

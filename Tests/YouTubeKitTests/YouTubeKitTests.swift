@@ -172,7 +172,7 @@ final class YouTubeKitTests: XCTestCase {
     
     // MARK: - Helper Functions
     
-    private func checkStreamReachability(_ stream: YouTubeKit.Stream?) async throws {
+    private func checkStreamReachability(_ stream: YouTubeKit.YTStream?) async throws {
         guard let stream else { return }
         
         var request = URLRequest(url: stream.url)

@@ -84,7 +84,7 @@ class Cipher {
     
     /// Decipher the signature
     func getSignature(cipheredSignature: String) -> String {
-        var signature = Array(cipheredSignature)
+        let signature = Array(cipheredSignature)
         
         // TODO: apply transform functions
         
